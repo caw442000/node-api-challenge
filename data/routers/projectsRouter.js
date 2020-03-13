@@ -76,8 +76,8 @@ router.delete("/:id", (req, res) => {
 
   projectsDB
     .remove(id)
-    .then(deleteShow => {
-      res.status(200).json(deleteShow);
+    .then(deleteProject => {
+      res.status(200).json(deleteProject);
     })
     .catch(err => {
       res.status(500).json({ error: `There was an error: ${err}` });

@@ -12,7 +12,7 @@ server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
 server.use('/api/projects', projectsRouter);
-server.use('api/actions', actionsRouter);
+server.use('/api/actions', actionsRouter);
 
 
 
