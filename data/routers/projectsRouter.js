@@ -27,6 +27,15 @@ router.get('/:id', (req, res) => {
 
 
 //GET Actions by project :id
+router.get('/:id/actions', (req, res) => {
+  const { id } = req.params;
+
+  projectsDB.getProjectActions(id).then(actions => {
+    res.status(200).json(actions)
+  }).catch(err => {
+    res.status(500).json({ error: `There was an error: ${err}`});
+  })
+})
 
 
 // POST 
