@@ -48,7 +48,7 @@ router.post("/", (req, res) => {
   projectsDB
     .insert(addedProject)
     .then(addedProject => {
-      res.status(200).json(addedProject);
+      res.status(201).json(addedProject);
     })
     .catch(err => {
       res.status(500).json({ error: `There was an error: ${err}` });
@@ -70,5 +70,18 @@ router.put("/:id", (req, res) => {
     });
 });
 // DELETE by :id
+
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  projectsDB
+    .remove(id)
+    .then(deleteShow => {
+      res.status(200).json(deleteShow);
+    })
+    .catch(err => {
+      res.status(500).json({ error: `There was an error: ${err}` });
+    });
+});
 
 module.exports = router;
