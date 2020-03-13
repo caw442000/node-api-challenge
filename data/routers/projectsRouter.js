@@ -1,5 +1,5 @@
 const router = require('express').Router();
 
-const projectsDB = require('../data/helpers/projectModel');
+const projectsDB = require('../helpers/projectModel');
 
 module.exports = router;
