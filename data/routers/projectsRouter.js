@@ -56,7 +56,19 @@ router.post("/", (req, res) => {
 });
 
 // PUT by :id
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const updateProject = req.body;
 
+  projectsDB
+    .update(id, updateProject)
+    .then(updateProject => {
+      res.status(200).json(updateProject);
+    })
+    .catch(err => {
+      res.status(500).json({ error: `There was an error: ${err}` });
+    });
+});
 // DELETE by :id
 
 module.exports = router;
